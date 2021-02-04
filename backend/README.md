@@ -72,17 +72,17 @@ One note before you delve into your tasks: for each endpoint you are expected to
 REVIEW_COMMENT
 ```
 This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
-
+```
 
 ##Endpoints:
 ---------
-# GET '/categories'
-# GET '/questions'
-# POST '/question'
-# DELETE '/question/id'
+## GET '/categories'
+## GET '/questions'
+## POST '/question'
+## DELETE '/question/id'
 
 -------------------------------------------------------------------------------------
-## GET '/categories'
+### GET '/categories'
 ================
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
@@ -100,7 +100,7 @@ This README is missing documentation of your endpoints. Below is an example for 
                         }
 
 -------------------------------------------------------------------------------------
-## GET '/questions'
+### GET '/questions'
 ===============
 - This Endpoint should return json object contains 
 (request success state, list of questions (10) , number of questions returned, list of categories).
@@ -116,7 +116,7 @@ in form of key:value pair
                         }
 
 -------------------------------------------------------------------------------------
-## POST '/question'
+### POST '/question'
 ===============
 - This endpoint insert a question into the database
 
@@ -145,7 +145,7 @@ in form of key:value pair
   }
  
 -------------------------------------------------------------------------------------
-## DELETE '/questions/{question_id}'
+### DELETE '/questions/{question_id}'
 =====================
 - Deletes the book of the given ID if it exists. 
 - Returns the id of the deleted book, success value.
@@ -157,10 +157,6 @@ in form of key:value pair
                        'question_id': 16
                      }
 
-
-
-
-```
 
 
 ## Testing
