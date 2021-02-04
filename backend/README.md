@@ -68,15 +68,17 @@ One note before you delve into your tasks: for each endpoint you are expected to
 7. Create a POST endpoint to get questions based on a search term. It should return any questions for whom the search term is a substring of the question. 
 8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
 9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
-
+-------------------------------------------------------------------------------------
 
 ## Endpoints:
 - GET '/categories'
 - GET '/questions'
-- POST '/question'
-- DELETE '/question/id'
+- POST '/questions'
+- DELETE '/questions/id'
+- POST '/search'
+- POST '/quizzes'
 
--------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 ### GET '/categories'
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
