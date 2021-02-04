@@ -69,21 +69,15 @@ One note before you delve into your tasks: for each endpoint you are expected to
 8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
 9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
 
-REVIEW_COMMENT
-```
-This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
-```
 
-##Endpoints:
----------
-## GET '/categories'
-## GET '/questions'
-## POST '/question'
-## DELETE '/question/id'
+## Endpoints:
+- GET '/categories'
+- GET '/questions'
+- POST '/question'
+- DELETE '/question/id'
 
 -------------------------------------------------------------------------------------
 ### GET '/categories'
-================
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
@@ -101,7 +95,6 @@ This README is missing documentation of your endpoints. Below is an example for 
 
 -------------------------------------------------------------------------------------
 ### GET '/questions'
-===============
 - This Endpoint should return json object contains 
 (request success state, list of questions (10) , number of questions returned, list of categories).
 in form of key:value pair
@@ -117,7 +110,6 @@ in form of key:value pair
 
 -------------------------------------------------------------------------------------
 ### POST '/question'
-===============
 - This endpoint insert a question into the database
 
 - Arguments => (in order to success) Request Body should contain json object similar to the following:
@@ -146,7 +138,6 @@ in form of key:value pair
  
 -------------------------------------------------------------------------------------
 ### DELETE '/questions/{question_id}'
-=====================
 - Deletes the book of the given ID if it exists. 
 - Returns the id of the deleted book, success value.
 
