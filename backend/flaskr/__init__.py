@@ -67,6 +67,10 @@ def create_app(test_config=None):
         paginated_questions = paginate_itmes(request, questions)
         formated_questions = [q.format() for q in paginated_questions]
         formated_categories = {category.id: category.type for category in categories}
+      
+        if len(questions)==0 or len(categories) ==0:
+                abort(404)
+            
         return jsonify({
           'success': True,
           'questions': formated_questions,
