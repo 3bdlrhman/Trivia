@@ -43,13 +43,22 @@ psql trivia < trivia.psql
 
 From within the `backend` directory first ensure you are working using your created virtual environment.
 
-To run the server, execute:
+To run the server on macOS, execute:
 
 ```bash
 export FLASK_APP=flaskr
 export FLASK_ENV=development
 flask run
 ```
+
+To run the server on Windows, execute:
+
+```bash
+set FLASK_APP=flaskr
+set FLASK_ENV=development
+flask run
+```
+
 
 Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
 
@@ -68,9 +77,10 @@ One note before you delve into your tasks: for each endpoint you are expected to
 7. Create a POST endpoint to get questions based on a search term. It should return any questions for whom the search term is a substring of the question. 
 8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
 9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
--------------------------------------------------------------------------------------
+
 
 ## Endpoints:
+--------------
 - GET '/categories'
 - GET '/questions'
 - POST '/questions'
@@ -78,8 +88,9 @@ One note before you delve into your tasks: for each endpoint you are expected to
 - POST '/search'
 - POST '/quizzes'
 
----------------------------------------------------------------------------------------
-### GET '/categories'
+-------------------------------------------------------------------------------------
+## GET '/categories'
+================
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
@@ -96,7 +107,8 @@ One note before you delve into your tasks: for each endpoint you are expected to
                         }
 
 -------------------------------------------------------------------------------------
-### GET '/questions'
+## GET '/questions'
+===============
 - This Endpoint should return json object contains 
 (request success state, list of questions (10) , number of questions returned, list of categories).
 in form of key:value pair
@@ -111,7 +123,8 @@ in form of key:value pair
                         }
 
 -------------------------------------------------------------------------------------
-### POST '/question'
+## POST '/questions'
+===============
 - This endpoint insert a question into the database
 
 - Arguments => (in order to success) Request Body should contain json object similar to the following:
@@ -139,7 +152,8 @@ in form of key:value pair
   }
  
 -------------------------------------------------------------------------------------
-### DELETE '/questions/{question_id}'
+## DELETE '/questions/{question_id}'
+=====================
 - Deletes the book of the given ID if it exists. 
 - Returns the id of the deleted book, success value.
 
@@ -151,6 +165,52 @@ in form of key:value pair
                      }
 
 
+-------------------------------------------------------------------------------------
+## POST '/search'
+===============
+- This endpoint searches for a word in the database and returns list of questions 
+  which contains this word. 
+
+- Arguments => (in order to success) Request Body should contain json object similar to the following:
+{
+'searchTerm' : 'soccer'
+}
+
+
+- Sample Request =>  curl http://localhost:5000/questions -X POST 
+                     -H "Content-Type: application/json" -d '{'searchTerm' : 'history'}'
+
+- Sample Response => in the other hand (if succeeded) the returned json object contains
+  success state, list of questions conatins this word, and number of the questions
+
+  {
+      'success': True,
+      'questions': []
+      'num_of_question': 14
+  }
+
+-------------------------------------------------------------------------------------
+## POST '/quizzes'
+===============
+- Also you can Play the quiz using /quizzes endpoint after choosing a category 
+  you will be asked number of questions and finally see your score. 
+
+- Arguments => (in order to success) Request Body should contain json object similar to the following:
+{
+'previous_questions' : [list_of_previous_questions],
+'quiz_category': {'category_id': 'category_name'}
+}
+
+- Sample Response => in the other hand (if succeeded) the returned json object contains
+  1- success state. 
+  2- Random question according to specified category.
+
+  {
+      'success': True,
+      'questions': {'question': '', 'answer': '', 'category': '', 'difficulty': ''}
+  }
+
+------------------------------------------------------------------------------------------
 
 ## Testing
 To run the tests, run
