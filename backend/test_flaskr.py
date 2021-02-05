@@ -57,7 +57,7 @@ class TriviaTestCase(unittest.TestCase):
             
     def test_post_new_question(self):
         res = self.client().post('/questions', json= {
-            'question':'how do you do', 'answer': 'i am fine','difficulty': 4,'category': 'Science'})
+            'question':'how do you do', 'answer': 'i am fine','difficulty': 4,'category': 3})
         data = json.loads(res.data)
         self.assertEqual(data['success'], True)
 
