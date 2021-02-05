@@ -77,6 +77,20 @@ class TriviaTestCase(unittest.TestCase):
         data = json.loads(res.data)
         self.assertTrue(data['success'])
         self.assertEqual(data['question_id'], 5)
+    
+    def test_get_specific_category_question(self):
+        res = self.client().get('/categories/4/questions')
+        data = json.loads(res.data)
+        self.assertTrue(data['success'])
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['total_questions'], 3)
+        
+    def test_failing_to_get_specific_category_question(self):
+        res = self.client().get('/categories/33/questions')
+        data = json.loads(res.data)
+        self.assertTrue(data['success'])
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['total_questions'], 3)
 
        #add section for testing
     def test_quiz_play(self):
