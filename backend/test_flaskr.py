@@ -78,6 +78,20 @@ class TriviaTestCase(unittest.TestCase):
         self.assertTrue(data['success'])
         self.assertEqual(data['question_id'], 5)
 
+       #add section for testing
+    def test_quiz_play(self):
+        res = self.client().post('/quizzes', json={'previous_questions':[], 'quiz_category':{'id':2} })
+        data = json.loads(res.data)
+        self.assertTrue(data['success'])
+        self.assertEqual(data['question']['id'], 21)
+        # this most likely to fail since the returned question is random
+    
+    def test_failing_to_play_quiz(self):
+        # since the specified method is not allowed
+        res = self.client().get('/quizzes', json={'previous_questions':[], 'quiz_category':2})
+        data = json.loads(res.data)
+        self.assertTrue(data['success'])
+        self.assertTrue(data['question'])
 
 # Make the tests conveniently executable
 if __name__ == "__main__":
