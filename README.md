@@ -18,10 +18,9 @@
 
 
 ## Start Using this App
-
-1- Clone This repository to your local machine
-2- Install dependencies using `pip3 install -r requirements.txt`
-3- from the backend run `set FLASK_APP=flaskr` and `flask run`
+- Clone This repository to your local machine
+- Install dependencies using `pip3 install -r requirements.txt`
+- from the backend run `set FLASK_APP=flaskr` and `flask run`
 
 ## About the Stack
 
